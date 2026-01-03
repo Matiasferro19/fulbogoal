@@ -23,8 +23,8 @@ Análisis y predicciones de goles en el primer tiempo utilizando datos, tendenci
 - **Estilos**: Bootstrap 5, Font Awesome
 - **Deployment**: Vercel
 - **Backend/Webhooks**: n8n Cloud
-- **Datos**: Google Sheets + n8n workflows
-- **Inteligencia Artificial**: OpenAI, Claude AI
+- **Datos y Automatizacion**: Google Sheets + n8n workflows + IA (OpenAI gpt-5-nano)
+- **Inteligencia Artificial**: ChatGPT, Claude AI
 
 ## 📱 Secciones
 
