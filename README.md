@@ -1,6 +1,6 @@
 # ⚽ FulboGoal
 
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.fulbogoal.com&label=fulbogoal.com)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Ffulbogoal.com&label=fulbogoal.com)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Matiasferro19/fulbogoal)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Matiasferro19/fulbogoal)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
