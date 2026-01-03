@@ -1,0 +1,692 @@
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background:#1f1f1f;
+  color:#e2e8f0;
+  min-height:100vh;
+}
+
+h1, h2 {
+  font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
+}
+
+
+
+/* NAVBAR MEJORADO */
+.navbar {
+  background: #050505 !important;
+  min-height: 80px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.navbar-nav {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-logo-img {
+  height: 70px;
+  object-fit: contain;
+}
+
+.nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #3b82f6 !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background: #121213;
+  border: none;
+}
+
+.dropdown-item {
+  color: #cbd5e1;
+}
+
+.dropdown-item:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+/* Header */
+.page-header {
+  text-align:center;
+  margin:30px 0 25px 0;
+  padding-bottom:20px;
+}
+
+.primertiempo{
+  color:#e2e8f0;
+}
+
+.herramienta{
+  font-family: 'Montserrat', sans-serif;
+  color:#e2e8f0;
+}
+
+.logo-text {
+  font-size:1.8em;
+  margin-bottom:10px;
+  color:#e2e8f0;
+  font-weight:600;
+}
+
+/* === TABS DE FECHAS === */
+
+.date-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.date-tabs .nav-item {
+  display: inline-block;
+}
+
+.date-tab {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: #cbd5e1;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.date-tab:hover,
+.date-tab.active {
+  color: #3b82f6;
+}
+
+
+/* Tabla - Estilo FootyStats */
+.predictions-table { 
+  overflow-x:auto; 
+  background:#000;
+  border-radius:8px; 
+  box-shadow:0 2px 10px rgba(0,0,0,0.8);
+  margin-bottom: 50px;
+}
+
+table { 
+  width:100%; 
+  border-collapse:collapse; 
+  background:#000;
+}
+
+thead { 
+  background:#000;
+  border-bottom:2px solid #222;
+}
+
+thead th {
+  padding:16px 14px;
+  text-align:left;
+  color:#fff;
+  font-weight:700;
+  font-size:0.8em;
+  text-transform:uppercase;
+  letter-spacing:0.8px;
+  border-right:1px solid #1a1a1a;
+  background:#000;
+}
+
+thead th:last-child {
+  border-right:none;
+}
+
+tbody td { 
+  padding:16px 14px; 
+  font-size:0.9em; 
+  color:#e2e8f0;
+  border-bottom:1px solid #1a1a1a;
+  border-right:1px solid #1a1a1a;
+  font-weight:500;
+}
+
+tbody td:last-child {
+  border-right:none;
+}
+
+tbody tr:nth-child(odd) {
+  background:#0a0a0a;
+}
+
+tbody tr:nth-child(even) {
+  background:#141414;
+}
+
+tbody tr:hover { 
+  background:#1f1f1f !important;
+  transition:background 0.2s ease;
+}
+
+.league-cell { 
+  font-weight:700;
+  font-size:0.7em;
+  color:#fff;
+  background:#3b82f6;
+  padding:5px 12px;
+  border-radius:20px;
+  display:inline-block;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+.percentage-bar-container { 
+  display:flex; 
+  align-items:center; 
+  gap:12px; 
+}
+
+.percentage-bar { 
+  flex:1; 
+  height:20px; 
+  background:#222;
+  border-radius:4px; 
+  overflow:hidden;
+  border:1px solid #333;
+}
+
+.percentage-fill { 
+  height:100%; 
+  transition:width 0.6s ease;
+  border-radius:4px;
+}
+
+.percentage-value { 
+  min-width:50px; 
+  font-weight:700;
+  font-size:0.95em;
+  text-align:center;
+  padding:4px 10px;
+  border-radius:4px;
+}
+
+tbody tr td:last-child {
+  font-weight:700;
+}
+
+/* === ACORDEÓN DE EQUIPOS === */
+.teams-stats-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-size: 1.6em;
+  color: #e2e8f0;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.section-title i {
+  color: #3b82f6;
+  margin-right: 8px;
+}
+
+.section-description {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-size: 0.95em;
+}
+
+.teams-accordion {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.accordion-item {
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto 40px;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: #0a0a0a;
+  transition: background 0.2s ease;
+  gap: 15px;
+}
+
+.accordion-header:hover {
+  background: #141414;
+}
+
+.accordion-item.active .accordion-header {
+  background: #141414;
+  border-bottom: 1px solid #222;
+}
+
+.team-name {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.95em;
+}
+
+.team-percentage {
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.next-match-preview {
+  color: #94a3b8;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.accordion-icon {
+  color: #64748b;
+  transition: transform 0.3s ease;
+  font-size: 1.2em;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #0a0a0a;
+}
+
+.accordion-content-inner {
+  padding: 20px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.match-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background: #141414;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+}
+
+.info-label {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 8px;
+  letter-spacing:0.5px;
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 1.1em;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.no-match {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Footer */
+footer {
+  background:#121213;
+  text-align:center;
+  padding:25px 40px;
+  font-size:0.85em;
+  margin-top:60px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-content h3,
+.social-links,
+.support-section {
+  flex: 1 1 auto;
+  min-width: 180px;
+  text-align: center;
+}
+
+footer h3 {
+  margin-bottom:15px;
+  font-size:1.1em;
+  color:#ffffff;
+  font-weight:600;
+}
+
+footer p {
+  margin-bottom:20px;
+  color:#cbd5e1;
+}
+
+.social-links {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:5px;
+}
+
+.social-link {
+  text-decoration:none;
+  color:#cbd5e1;
+  font-weight:500;
+  transition:all 0.2s;
+  padding:6px 12px;
+  border-radius:4px;
+}
+
+.social-link i {
+  margin-right:5px;
+}
+
+.social-link:hover {
+  color:#3b82f6;
+}
+
+.support-section {
+  margin-top:20px;
+}
+
+.support-btn {
+  display:inline-block;
+  color:#fff;
+  padding:8px 20px;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.9em;
+  transition:all 0.2s;
+}
+
+.support-btn:hover {
+  color:#3b82f6;
+}
+
+/* Modal base */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* fondo semi-transparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: #353434;
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Botón cerrar */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal .close:hover {
+  color: #3b82f6;
+}
+
+/* Header de círculos */
+.modal-header-circles {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.modal-header-circles .circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.circle.white { background: #fff; }
+.circle.black { background: #000; }
+
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-container {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav-logo {
+    height: 60px;
+  }
+
+  .nav-logo img {
+    max-height: 50px;
+  }
+
+  .nav-menu { 
+    display: none; 
+    position: absolute; 
+    top: 60px; 
+    left: 0; 
+    right: 0; 
+    flex-direction: column; 
+    background: #1e293b; 
+    padding: 10px 0;
+    grid-column: 1 / -1;
+  }
+
+  .nav-menu.active{ 
+    display: flex; 
+  }
+
+  .nav-toggle { 
+    display: flex; 
+  }
+
+  thead th {
+    font-size:0.7em;
+    padding:12px 8px;
+  }
+
+  tbody td {
+    font-size:0.85em;
+    padding:12px 8px;
+  }
+
+  .logo-text {
+    font-size:1.5em;
+  }
+
+  .date-tabs {
+    flex-direction:column;
+    gap:10px;
+    align-items: center;
+  }
+
+  .date-tab {
+    padding:10px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .accordion-header {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+
+  .next-match-preview {
+    display: none;
+  }
+
+  .team-percentage {
+    font-size: 0.85em;
+    padding: 4px 10px;
+  }
+
+  .match-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-toggle i {
+  font-size: 0.75em;
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e293b;
+  min-width: 200px;
+  border-radius: 4px;
+  padding: 8px 0;
+  margin-top: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  list-style: none;
+  z-index: 1000;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.2s;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.dropdown-menu a:hover {
+  background: #334155;
+  color: #3b82f6;
+}
+
+@media(max-width:768px) {
+  .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background: #0f172a;
+    margin: 5px 0;
+    padding: 5px 0;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .navbar-brand {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .nav-logo-img {
+    height: 55px;
+  }
+
+  .nav-link {
+    font-size: 0.85em;
+    padding: 6px 10px;
+  }
+
+  .nav-link.long-text {
+    display: none;
+  }
+}
+

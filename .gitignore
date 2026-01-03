@@ -1,0 +1,20 @@
+# Archivos de configuración sensibles
+config.js
+.env
+.env.local
+
+# Archivos de n8n
+*.json
+
+# Node modules (si usas npm)
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+.vscode/
+.idea/
+*.swp
+*.swo

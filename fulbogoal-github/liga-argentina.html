@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liga Argentina - FulboGoal</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./imagenes/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./imagenes/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./imagenes/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand bg-dark sticky-top">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./imagenes/logoFulboGoal.png" alt="FulboGoal Logo" class="nav-logo-img">
+    </a>
+
+    <!-- MENÚ -->
+    <ul class="navbar-nav mx-auto gap-1 align-items-center">
+
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Inicio</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="gol-primer-tiempo.html">
+          Cómo Funciona Gol Primer Tiempo?
+        </a>
+      </li>
+
+      <!-- DROPDOWN LIGA -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+          Liga Argentina
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item active" href="liga-argentina.html">Liga Profesional</a></li>
+          <li><a class="dropdown-item" href="primera-nacional.html">Primera Nacional</a></li>
+        </ul>
+      </li>
+
+      <!-- DROPDOWN COMUNIDAD -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          Comunidad
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li>
+            <a class="dropdown-item" href="https://whatsapp.com/channel/0029Vb5W7jD8qIzqejGlk22z" target="_blank">
+              <i class="fab fa-whatsapp me-2 text-success"></i> WhatsApp
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://www.instagram.com/fulbogoal/" target="_blank">
+              <i class="fab fa-instagram me-2 text-danger"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://discord.gg/Xu7P45epH2" target="_blank">
+              <i class="fab fa-discord me-2 text-primary"></i> Discord
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+  <main class="container">
+    <!-- Header -->
+    <header class="page-header">
+      <h2 class="logo-text">
+        <i class="fa-solid fa-shield-halved" style="color: #3b82f6; margin-right: 8px;"></i>
+        Liga Profesional de Futbol
+      </h2>
+      <p>
+        Estadísticas de goles en el primer tiempo de todos los equipos de la Liga Argentina. partidos a confirmar!
+      </p>
+    </header>
+
+    <!-- Tabla de Liga Argentina -->
+    <div class="predictions-table">
+      <table id="ligaArgentinaTable">
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Equipo</th>
+            <th>Próximo Partido</th>
+            <th>% Gol Primer Tiempo (+0.5)</th>
+          </tr>
+        </thead>
+        <tbody id="ligaArgentinaTableBody">
+          <!-- JS cargará las filas -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Desarrollado por Matías</h3>
+
+      <!-- Redes sociales -->
+      <div class="social-links">
+        <a href="https://github.com/Matiasferro19" target="_blank" class="social-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/ferromatias/" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+
+      <div class="support-section">
+        <p>Si te ayudó esta información, podes apoyar el proyecto</p>
+        <a href="#" id="openSupportModal" class="support-btn">☕ Invítame un café</a>
+      </div>
+
+      <!-- Link Acerca -->
+      <div class="about-link" style="margin-top:15px;">
+        <a href="acerca.html" class="nav-link">Acerca</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="supportModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header-circles">
+    <span class="circle white"></span>
+    <span class="circle black"></span>
+    <span class="circle white"></span>
+  </div>
+      <span class="close">&times;</span>
+      <p>Gracias por tu apoyo! Haces crecer Fulb<i class="fa-regular fa-futbol" style="margin: 0 3px;"></i>Goal</p>
+      <a href="https://link.mercadopago.com.ar/matiasf19" target="_blank" class="support-btn">Mercado Pago</a>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=P9JJSF29CQJZE" target="_blank" class="support-btn">Paypal</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="liga-argentina.js"></script>
+</body>
+</html>

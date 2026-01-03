@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FulboGoal</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./imagenes/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./imagenes/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./imagenes/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./imagenes/apple-touch-icon.png">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet"/>
+
+<style>
+	:root {
+		--chat--color--primary: #000000; /* negro */
+	--chat--color--primary-shade-50: #111111;
+	--chat--color--primary--shade-100: #222222;
+	
+	--chat--color--secondary: #0066ff; /* azul para mensajes del usuario */
+	--chat--color-secondary-shade-50: #0052cc;
+
+	--chat--color-dark: #000000;
+	--chat--color-light: #ffffff;
+	--chat--toggle--background: #0066ff; /* boton flotante */
+	--chat--toggle--hover--background: #0052cc;
+	--chat--toggle--active--background: #0041a8;
+}
+
+/* 🔵 Botón flotante (launcher) mejor control */
+#n8n-chat-widget-launcher {
+  background-color: #0066ff !important; /* azul */
+	}
+</style>
+
+<div id="n8n-chat"></div>
+
+<script type="module">
+	import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
+
+	createChat({
+		target: "#n8n-chat",
+		webhookUrl: "TU_WEBHOOK_AQUI",
+		mode: "window",
+		showWelcomeScreen: false,
+		defaultLanguage: "es",
+		initialMessages: [
+			"¡Hola! 👋 Soy Fulb⚽Goal IA, tu asistente de estadísticas 1T",
+      "Ingresa un equipo para ver su porcentaje",
+      "Ligas disponibles con porcentajes altos: España, Inglaterra, Italia, Francia, Alemania y Portugal."
+		],
+		i18n: {
+			es: {
+				title: "📊 Datos 1T – Fulb⚽Goal IA",
+				subtitle: "Un equipo? Te lo digo. La tabla completa de goles 1T? Pedímela y te la envío por email 📩",
+				inputPlaceholder: "Ej: Barcelona, Real Madrid, Inter, etc...",
+				getStarted: "Nueva consulta"
+			}
+		}
+	});
+</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand bg-dark sticky-top">
+  <div class="container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="./imagenes/logoFulboGoal.png" alt="FulboGoal Logo" class="nav-logo-img">
+    </a>
+
+    <!-- MENÚ -->
+    <ul class="navbar-nav mx-auto gap-1 align-items-center">
+
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Inicio</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="gol-primer-tiempo.html">
+          Cómo Funciona Gol Primer Tiempo?
+        </a>
+      </li>
+
+      <!-- DROPDOWN LIGA -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          Liga Argentina
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="liga-argentina.html">Liga Profesional</a></li>
+          <li><a class="dropdown-item" href="primera-nacional.html">Primera Nacional</a></li>
+        </ul>
+      </li>
+
+      <!-- DROPDOWN COMUNIDAD -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          Comunidad
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li>
+            <a class="dropdown-item" href="https://whatsapp.com/channel/0029Vb5W7jD8qIzqejGlk22z" target="_blank">
+              <i class="fab fa-whatsapp me-2 text-success"></i> WhatsApp
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://www.instagram.com/fulbogoal/" target="_blank">
+              <i class="fab fa-instagram me-2 text-danger"></i> Instagram
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="https://discord.gg/Xu7P45epH2" target="_blank">
+              <i class="fab fa-discord me-2 text-primary"></i> Discord
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+ <main class="container">
+  <!-- Header -->
+  <header class="page-header text-center my-4">
+    <h2 class="logo-text mb-3">
+      Que Hace Fulb<i class="fa-regular fa-futbol mx-2"></i>Goal?
+    </h2>
+    <p class="mx-auto">
+      Análisis y predicciones de goles en el
+      <span class="primertiempo">primer tiempo (+0.5)</span>
+      utilizando datos, tendencias y nuestro sistema inteligente
+      <i class="fa-solid fa-robot"></i>.
+      Una <span class="herramienta">herramienta</span> para detectar patrones reales en cada partido
+    </p>
+  </header>
+</main>
+
+   <!-- Tabs de fechas -->
+<ul class="date-tabs mb-4" id="dateTabs">
+  <li class="nav-item">
+    <button class="date-tab" data-tab="ayer">
+      Partidos de Ayer 
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="date-tab active" data-tab="hoy">
+      Partidos de Hoy 
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="date-tab" data-tab="manana">
+      Partidos de Mañana 
+    </button>
+  </li>
+</ul>
+
+
+
+    <!-- Tabla de predicciones -->
+    <div class="predictions-table">
+      <table id="predictionsTable">
+        <thead id="tableHeader">
+          <tr>
+            <th>Hora</th>
+            <th>Liga</th>
+            <th>Partidos</th>
+            <th>Racha</th>
+            <th>Probabilidad</th>
+          </tr>
+        </thead>
+        <tbody id="predictionsTableBody">
+          <!-- JS cargará las filas -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sección de Estadísticas de Equipos -->
+    <div class="teams-stats-section">
+      <h2 class="section-title">
+        <i class="fa-solid fa-chart-line"></i> Equipos con probabilidad de Gol en 1T (+0.5) 
+      </h2>
+      <p class="section-description">
+        Explorá el rendimiento histórico de equipos seleccionados de gol en el primer tiempo
+      </p>
+      
+      <!-- Acordeón de equipos -->
+      <div class="teams-accordion" id="teamsAccordion">
+        <!-- JS cargará el acordeón -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h3>Desarrollado por Matías</h3>
+
+      <!-- Redes sociales -->
+      <div class="social-links">
+        <a href="https://github.com/Matiasferro19" target="_blank" class="social-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/ferromatias/" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+
+      <div class="support-section">
+        <p>Si te ayudó esta información, podes apoyar el proyecto</p>
+        <a href="#" id="openSupportModal" class="support-btn">☕ Invítame un café</a>
+      </div>
+
+      <!-- Link Acerca -->
+      <div class="about-link" style="margin-top:15px;">
+        <a href="acerca.html" class="nav-link">Acerca</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="supportModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header-circles">
+    <span class="circle white"></span>
+    <span class="circle black"></span>
+    <span class="circle white"></span>
+  </div>
+      <span class="close">&times;</span>
+      <p>Gracias por tu apoyo! Haces crecer Fulb<i class="fa-regular fa-futbol" style="margin: 0 3px;"></i>Goal</p>
+      <a href="https://link.mercadopago.com.ar/matiasf19" target="_blank" class="support-btn">Mercado Pago</a>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=P9JJSF29CQJZE" target="_blank" class="support-btn">Paypal</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
