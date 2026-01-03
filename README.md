@@ -24,6 +24,7 @@ Análisis y predicciones de goles en el primer tiempo utilizando datos, tendenci
 - **Deployment**: Vercel
 - **Backend/Webhooks**: n8n Cloud
 - **Datos**: Google Sheets + n8n workflows
+- **Inteligencia Artificial**: OpenAI, Claude AI
 
 ## 📱 Secciones
 
