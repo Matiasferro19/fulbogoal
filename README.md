@@ -89,6 +89,12 @@ El sistema usa webhooks de n8n para obtener predicciones. Configura tus webhooks
 
 Este proyecto es de código abierto.
 
+## 📧 Contacto
+
+- 🌐 Web: [www.fulbogoal.com](https://www.fulbogoal.com)
+- 💼 LinkedIn: [Tu perfil](tu-linkedin)
+- 📧 Email: tu-email@ejemplo.com
+
 ---
 
 ⚽ **FulboGoal** - Análisis inteligente de partidos
