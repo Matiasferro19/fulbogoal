@@ -25,6 +25,7 @@ Sistema de análisis y predicción de partidos con alta probabilidad de gol en e
 - Claude AI (Anthropic)
 - ChatGPT (OpenAI)
 - Antigravity IDE
+- **Chatbot**
 
 ## 📦 Instalación
 
