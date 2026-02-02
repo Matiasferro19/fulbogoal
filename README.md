@@ -92,8 +92,7 @@ Este proyecto es de código abierto.
 ## 📧 Contacto
 
 - 🌐 Web: [www.fulbogoal.com](https://www.fulbogoal.com)
-- 💼 LinkedIn: [Tu perfil](tu-linkedin)
-- 📧 Email: tu-email@ejemplo.com
+- 💼 LinkedIn: [Tu perfil]([tu-linkedin](https://www.linkedin.com/in/ferromatias/))
 
 ---
 
