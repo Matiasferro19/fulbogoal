@@ -1,0 +1,304 @@
+{
+  "name": "Partidos De Hoy",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "return items\n  .filter(item => item.json.col_1) // elimina filas sin col_1\n  .map(item => ({\n    json: {\n      hora: item.json.col_1,\n      liga: item.json.col_2,\n      partido: item.json.col_3,\n      racha: item.json.col_4,\n      probabilidad: item.json.col_5\n    }\n  }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -592,
+        -176
+      ],
+      "id": "91eaf761-1687-4835-82d2-fffe55744e0a",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items\n  .filter(item => item.json.col_1) // elimina filas sin col_1\n  .map(item => ({\n    json: {\n      hora: item.json.col_1,\n      liga: item.json.col_2,\n      partido: item.json.col_3,\n      racha: item.json.col_4,\n      probabilidad: item.json.col_5\n    }\n  }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -592,
+        48
+      ],
+      "id": "b2401ab1-59eb-4da4-b325-d96806a4cadf",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=0"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -912,
+        -256
+      ],
+      "id": "4c47e958-9fad-430d-87c0-3b067767e8a3",
+      "name": "Leer Tabla Partidos de Hoy",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 718478815,
+          "mode": "list",
+          "cachedResultName": "manana",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=718478815"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -912,
+        0
+      ],
+      "id": "9220a7bb-9d89-4d80-bf33-03de01851c22",
+      "name": "Leer Tabla Partidos de Mañana",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return items\n  .filter(item => item.json.col_1) // elimina filas sin col_1\n  .map(item => {\n    // Convertir a string y limpiar espacios\n    const valorCol5 = String(item.json.col_5 || '').toUpperCase().trim();\n    \n    return {\n      json: {\n        hora: item.json.col_1,\n        liga: item.json.col_2,\n        partido: item.json.col_3,\n        acierto: valorCol5 === 'TRUE' || valorCol5 === 'VERDADERO' || valorCol5 === '1'\n      }\n    };\n  });"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -576,
+        272
+      ],
+      "id": "ea5170a5-34a4-4f72-9a49-230136d2ca49",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 342210288,
+          "mode": "list",
+          "cachedResultName": "ayer",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=342210288"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -912,
+        240
+      ],
+      "id": "7867c87e-c6dc-4caf-96e8-4aa280bd4d41",
+      "name": "Leer Tabla Partidos de Ayer",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "predicciones",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1264,
+        -192
+      ],
+      "id": "40ee6a03-17b9-44ee-bc10-90d72d390c51",
+      "name": "Webhook Partidos de hoy",
+      "webhookId": "1f8670b0-fded-455d-899f-1179fbc26f6e"
+    },
+    {
+      "parameters": {
+        "path": "predicciones-manana",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1280,
+        48
+      ],
+      "id": "49de804d-20f5-413c-9553-e497873b35c7",
+      "name": "Webhook Partidos de mañana",
+      "webhookId": "0f7b156e-4fbd-4352-b890-bb3692755ebd"
+    },
+    {
+      "parameters": {
+        "path": "predicciones-ayer",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1280,
+        288
+      ],
+      "id": "ba3a3536-1b52-4772-afb7-63eadf804dca",
+      "name": "Webhook Partidos de ayer",
+      "webhookId": "0f7b156e-4fbd-4352-b890-bb3692755ebd"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code in JavaScript": {
+      "main": [
+        []
+      ]
+    },
+    "Leer Tabla Partidos de Hoy": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Tabla Partidos de Mañana": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Tabla Partidos de Ayer": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Partidos de hoy": {
+      "main": [
+        [
+          {
+            "node": "Leer Tabla Partidos de Hoy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Partidos de mañana": {
+      "main": [
+        [
+          {
+            "node": "Leer Tabla Partidos de Mañana",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Partidos de ayer": {
+      "main": [
+        [
+          {
+            "node": "Leer Tabla Partidos de Ayer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "timezone": "America/Argentina/Buenos_Aires",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "aabd4ac5-91e2-4377-88b0-f0e836109740",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bdd18a8c77a2987c9a10ababb0a93dc460f07fc3a09303972e6073d297628cf5"
+  },
+  "id": "C8t16ShGrD29NcbG",
+  "tags": []
+}

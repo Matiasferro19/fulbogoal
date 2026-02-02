@@ -1,0 +1,843 @@
+{
+  "name": "Publicar Partidos Noche",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 683254628,
+          "mode": "list",
+          "cachedResultName": "hoy-draft",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=683254628"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -992,
+        -400
+      ],
+      "id": "aa5c52a3-2da0-4964-b94a-e8b9bafbfe9c",
+      "name": "Leer Hoy Draft",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "clear",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=0"
+        },
+        "clear": "specificRange",
+        "range": "A4:E1000"
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -352,
+        -320
+      ],
+      "id": "f45608b1-0bfd-4f4c-bb3a-9711f01b2ab1",
+      "name": "Limpiar Hoja 1 (partidos de hoy)",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n// Filtrar la fila de encabezados\nreturn items.filter(item => {\n  return item.json.col_1 && item.json.col_1 !== \"Hora\";\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -688,
+        -416
+      ],
+      "id": "80e27224-cfb9-411e-ae31-9d84a7d7ed5b",
+      "name": "Filtrar Encabezados"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Hora": "={{ $json.col_1 }}",
+            "Liga": "={{ $json.col_2 }}",
+            "Partidos": "={{ $json.col_3 }}",
+            "Racha": "={{ $json.col_4 }}",
+            "Probabilidad": "={{ $json.col_5 }}"
+          },
+          "matchingColumns": [
+            "Hora"
+          ],
+          "schema": [
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Liga",
+              "displayName": "Liga",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Partidos",
+              "displayName": "Partidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Racha",
+              "displayName": "Racha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Probabilidad",
+              "displayName": "Probabilidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "locationDefine": {
+            "values": {
+              "headerRow": 3
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        -400
+      ],
+      "id": "6c52aa1e-4cf4-498e-8554-1e7e7d6a7847",
+      "name": "Append Hoja 1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n// Filtrar la fila de encabezados\nreturn items.filter(item => {\n  return item.json.col_1 && item.json.col_1 !== \"Hora\";\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -688,
+        -176
+      ],
+      "id": "fbc2babb-b086-4bfa-a601-9a4aff6f942f",
+      "name": "Filtrar Encabezados1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1278597575,
+          "mode": "list",
+          "cachedResultName": "manana-draft",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=1278597575"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -992,
+        -80
+      ],
+      "id": "7019353f-448f-49e5-a07e-680df4860900",
+      "name": "Leer Manana Draft",
+      "retryOnFail": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "clear",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 718478815,
+          "mode": "list",
+          "cachedResultName": "manana",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=718478815"
+        },
+        "clear": "specificRange",
+        "range": "A4:E1000"
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -352,
+        -80
+      ],
+      "id": "48095739-b23c-4aec-bd24-9f0a80ddac84",
+      "name": "Limpiar Hoja Manana (partidos de manana)",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 718478815,
+          "mode": "list",
+          "cachedResultName": "manana",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=718478815"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Hora": "={{ $json.col_1 }}",
+            "Liga": "={{ $json.col_2 }}",
+            "Partidos": "={{ $json.col_3 }}",
+            "Racha": "={{ $json.col_4 }}",
+            "Probabilidad": "={{ $json.col_5 }}"
+          },
+          "matchingColumns": [
+            "Hora"
+          ],
+          "schema": [
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Liga",
+              "displayName": "Liga",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Partidos",
+              "displayName": "Partidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Racha",
+              "displayName": "Racha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Probabilidad",
+              "displayName": "Probabilidad",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "locationDefine": {
+            "values": {
+              "headerRow": 3
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        -144
+      ],
+      "id": "a66c4ac0-36d2-4228-80e1-0e342eaaa9de",
+      "name": "Append Hoja Manana",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1264,
+        -352
+      ],
+      "id": "5894b2f1-c0eb-4a41-a33b-d06bce73cd1f",
+      "name": "Schedule Trigger Hoy"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1232,
+        -64
+      ],
+      "id": "21124610-379c-47d5-92c6-aa28d8af4c6b",
+      "name": "Schedule Trigger Manana"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n// Filtrar la fila de encabezados\nreturn items.filter(item => {\n  return item.json.col_1 && item.json.col_1 !== \"Hora\";\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -688,
+        -640
+      ],
+      "id": "b8593224-d3a5-404a-86d6-515d3a542278",
+      "name": "Filtrar Encabezados2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1383974820,
+          "mode": "list",
+          "cachedResultName": "ayer-draft",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=1383974820"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -992,
+        -656
+      ],
+      "id": "c2fcc9ba-b448-494c-852f-5196f7fc73f5",
+      "name": "Leer Ayer Draft",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "clear",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 342210288,
+          "mode": "list",
+          "cachedResultName": "ayer",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=342210288"
+        },
+        "clear": "specificRange",
+        "range": "A4:E1000"
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -352,
+        -544
+      ],
+      "id": "6dc5c574-249e-4de9-9a1a-089bd8d4cccf",
+      "name": "Limpiar Hoja Ayer (partidos de ayer)",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20",
+          "mode": "list",
+          "cachedResultName": "Partidos de Hoy",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 342210288,
+          "mode": "list",
+          "cachedResultName": "ayer",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15eMj2xmlq7zuqLDiF_GQ_oJvE6mK_XwxuNRBHABoc20/edit#gid=342210288"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Acierto": "={{ $json.col_5 }}",
+            "Racha": "={{ $json.col_4 }}",
+            "Partidos": "={{ $json.col_3 }}",
+            "Liga": "={{ $json.col_2 }}",
+            "Hora": "={{ $json.col_1 }}"
+          },
+          "matchingColumns": [
+            "Hora"
+          ],
+          "schema": [
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Liga",
+              "displayName": "Liga",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Partidos",
+              "displayName": "Partidos",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Racha",
+              "displayName": "Racha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Acierto",
+              "displayName": "Acierto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "locationDefine": {
+            "values": {
+              "headerRow": 3
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        -592
+      ],
+      "id": "6f1f8c60-516b-4cd8-93bb-1a6ec128d051",
+      "name": "Append Hoja Ayer",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "eq7dazCe8yd4AJ2e",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1264,
+        -576
+      ],
+      "id": "c194ed9a-6a0b-4f93-a9bd-1866aee27230",
+      "name": "Schedule Trigger Ayer"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1232,
+        192
+      ],
+      "id": "1de34bae-d966-439f-afed-351a362c2344",
+      "name": "Schedule Trigger para email"
+    },
+    {
+      "parameters": {
+        "sendTo": "matias.ferro19@gmail.com",
+        "subject": "=✅ Partidos actualizados - {{ $now.toFormat(\"dd/MM/yyyy HH:mm\") }}",
+        "message": "=<html>\n<head>\n  <meta charset=\"UTF-8\">\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }\n\n    body {\n      font-family: 'Segoe UI', Roboto, Arial, sans-serif;\n      background: #1f1f1f;\n      margin: 0;\n      padding: 0;\n    }\n\n    .container {\n      max-width: 600px;\n      margin: 30px auto;\n      background: #000;\n      border-radius: 8px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.8);\n      overflow: hidden;\n    }\n\n    .header {\n      background: #050505;\n      padding: 30px;\n      text-align: center;\n      color: white;\n      border-bottom: 2px solid #222;\n    }\n\n    .header h1 {\n      margin: 0;\n      font-family: 'Montserrat', 'Segoe UI', sans-serif;\n      font-size: 32px;\n      font-weight: 700;\n      color: #e2e8f0;\n    }\n\n    .header p {\n      margin: 10px 0 0 0;\n      font-size: 14px;\n      color: #94a3b8;\n      font-weight: 500;\n      text-transform: uppercase;\n      letter-spacing: 1px;\n    }\n\n    .content {\n      padding: 30px;\n      background: #0a0a0a;\n    }\n\n    .greeting {\n      font-size: 20px;\n      color: #e2e8f0;\n      margin-bottom: 20px;\n      font-weight: 600;\n    }\n\n    .message {\n      font-size: 16px;\n      color: #cbd5e1;\n      margin-bottom: 25px;\n      line-height: 1.6;\n    }\n\n    .status-list {\n      list-style: none;\n      padding: 0;\n      margin: 0;\n    }\n\n    .status-item {\n      background: #141414;\n      border-left: 4px solid #3b82f6;\n      padding: 16px 20px;\n      margin-bottom: 12px;\n      border-radius: 4px;\n      display: flex;\n      align-items: center;\n      font-size: 15px;\n      color: #e2e8f0;\n      font-weight: 500;\n      transition: background 0.2s ease;\n    }\n\n    .status-item:hover {\n      background: #1f1f1f;\n    }\n\n    .status-item .icon {\n      font-size: 24px;\n      margin-right: 12px;\n      color: #10b981;\n    }\n\n    .footer {\n      background: #121213;\n      padding: 20px 30px;\n      text-align: center;\n      font-size: 13px;\n      color: #cbd5e1;\n      border-top: 1px solid #1a1a1a;\n    }\n\n    .timestamp {\n      margin-top: 20px;\n      padding-top: 20px;\n      border-top: 1px solid #222;\n      font-size: 13px;\n      color: #64748b;\n      text-align: center;\n    }\n\n    .timestamp strong {\n      color: #3b82f6;\n      font-weight: 600;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>Fulb⚽Goal</h1>\n      <p>Sistema de Actualización Automática</p>\n    </div>\n    \n    <div class=\"content\">\n      <div class=\"greeting\">¡Hola FulboGoal! 👋</div>\n      \n      <div class=\"message\">\n        Se actualizaron exitosamente los partidos programados para medianoche:\n      </div>\n      \n      <ul class=\"status-list\">\n        <li class=\"status-item\">\n          <span class=\"icon\">✅</span>\n          <span>Partidos de HOY actualizados</span>\n        </li>\n        <li class=\"status-item\">\n          <span class=\"icon\">✅</span>\n          <span>Partidos de MAÑANA actualizados</span>\n        </li>\n        <li class=\"status-item\">\n          <span class=\"icon\">✅</span>\n          <span>Partidos de AYER actualizados</span>\n        </li>\n      </ul>\n      \n      <div class=\"timestamp\">\n        Ejecutado: <strong>{{ $now.toFormat(\"dd/MM/yyyy\") }}</strong> a las <strong>{{ $now.toFormat(\"HH:mm:ss\") }}</strong>\n      </div>\n    </div>\n    \n    <div class=\"footer\">\n      ⚽ FulboGoal - Predicciones Inteligentes\n    </div>\n  </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        -976,
+        144
+      ],
+      "id": "5ce107f7-15c2-43e5-8305-528ddf4a54c8",
+      "name": "Send a message",
+      "webhookId": "5312c192-55c1-4cc0-a034-052f51ddd224",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7MdOekL0ZZDIad6i",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Leer Hoy Draft": {
+      "main": [
+        [
+          {
+            "node": "Filtrar Encabezados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar Hoja 1 (partidos de hoy)": {
+      "main": [
+        [
+          {
+            "node": "Append Hoja 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar Encabezados": {
+      "main": [
+        [
+          {
+            "node": "Limpiar Hoja 1 (partidos de hoy)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar Encabezados1": {
+      "main": [
+        [
+          {
+            "node": "Limpiar Hoja Manana (partidos de manana)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Manana Draft": {
+      "main": [
+        [
+          {
+            "node": "Filtrar Encabezados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar Hoja Manana (partidos de manana)": {
+      "main": [
+        [
+          {
+            "node": "Append Hoja Manana",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Hoy": {
+      "main": [
+        [
+          {
+            "node": "Leer Hoy Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Manana": {
+      "main": [
+        [
+          {
+            "node": "Leer Manana Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filtrar Encabezados2": {
+      "main": [
+        [
+          {
+            "node": "Limpiar Hoja Ayer (partidos de ayer)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer Ayer Draft": {
+      "main": [
+        [
+          {
+            "node": "Filtrar Encabezados2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpiar Hoja Ayer (partidos de ayer)": {
+      "main": [
+        [
+          {
+            "node": "Append Hoja Ayer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Ayer": {
+      "main": [
+        [
+          {
+            "node": "Leer Ayer Draft",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger para email": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "timezone": "America/Argentina/Buenos_Aires",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "9a273087-5351-4ed9-8c10-5e137d63fb23",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bdd18a8c77a2987c9a10ababb0a93dc460f07fc3a09303972e6073d297628cf5"
+  },
+  "id": "2UtX6G25IKr3qaDz",
+  "tags": []
+}

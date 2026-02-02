@@ -1,78 +1,78 @@
-# ⚽ FulboGoal
+# ⚽ FulboGoal - Predicciones de Gol Primer Tiempo
 
-![Website](https://img.shields.io/website?url=https%3A%2F%2Ffulbogoal.com&label=fulbogoal.com)
-![GitHub last commit](https://img.shields.io/github/last-commit/Matiasferro19/fulbogoal)
-![GitHub repo size](https://img.shields.io/github/repo-size/Matiasferro19/fulbogoal)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+Sistema de análisis y predicción de partidos con alta probabilidad de gol en el primer tiempo.
 
-Análisis y predicciones de goles en el primer tiempo utilizando datos, tendencias y sistema inteligente.
+## 🚀 Características
 
-**🌐 Sitio en vivo:** [www.fulbogoal.com](https://www.fulbogoal.com)
+- 📊 Predicciones en tiempo real
+- 🎯 Filtrado por probabilidad (70%+, 85%+)
+- 📅 Vista de partidos: Ayer, Hoy y Mañana
+- 📱 Diseño responsive
+- 🔄 Sincronización automática con n8n
 
-## 🎯 Características
+## 🛠️ Tecnologías
 
-- **Predicciones en tiempo real**: Partidos de hoy, mañana y resultados de ayer
-- **Análisis de equipos**: Estadísticas históricas de goles en el primer tiempo
-- **Ligas Argentinas**: Liga Profesional y Primera Nacional
-- **Diseño responsive**: Optimizado para móviles y escritorio
-- **Chat IA**: Asistente inteligente para consultas rápidas
+- HTML5, CSS3, JavaScript
+- Bootstrap 5
+- Font Awesome
+- n8n (automatización)
+- Vercel (deployment)
 
-## 🚀 Tecnologías
-
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Estilos**: Bootstrap 5, Font Awesome
-- **Deployment**: Vercel
-- **Backend/Webhooks**: n8n Cloud
-- **Datos y Automatizacion**: Google Sheets + n8n workflows + IA (OpenAI gpt-5-nano)
-- **Inteligencia Artificial**: ChatGPT, Claude AI
-
-## 📱 Secciones
-
-- **Inicio**: Predicciones de partidos con probabilidades
-- **Equipos destacados**: Rankings y estadísticas
-- **Ligas Argentinas**: Datos específicos de equipos locales
-- **Comunidad**: Enlaces a WhatsApp, Instagram y Discord
-
-## 🛠️ Instalación Local
+## 📦 Instalación
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/Matiasferro19/fulbogoal.git
+git clone https://github.com/tu-usuario/fulbogoal.git
+cd fulbogoal
 ```
 
-2. Configura tus webhooks (opcional):
-   - Copia los archivos y reemplaza `"TU_WEBHOOK_AQUI"` con tus URLs de n8n
+2. Configura los webhooks en `config.js`:
+```javascript
+const CONFIG = {
+  webhooks: {
+    hoy: 'TU_WEBHOOK_HOY',
+    manana: 'TU_WEBHOOK_MANANA',
+    ayer: 'TU_WEBHOOK_AYER'
+  }
+};
+```
 
-3. Abre `index.html` en tu navegador
+3. Si usas Vercel, configura las variables de entorno en `api/proxy.js`
 
-## 📄 Configuración
+4. Abre `index.html` en tu navegador
 
-Para usar con tus propios datos, necesitarás configurar:
-- **n8n Cloud**: Para los webhooks de predicciones
-- **Google Sheets**: Para almacenar datos de partidos
-- **Vercel**: Para el deployment (opcional)
+## 📁 Estructura del Proyecto
 
-## 🌟 Demo
+```
+fulbogoal/
+├── index.html              # Página principal
+├── gol-primer-tiempo.html  # Estadísticas de equipos
+├── liga-argentina.html     # Liga Argentina
+├── primera-nacional.html   # Primera Nacional
+├── styles.css              # Estilos
+├── script.js               # Lógica principal
+├── config.js               # Configuración de webhooks
+├── api/
+│   └── proxy.js           # Proxy para webhooks
+└── imagenes/              # Assets
+```
 
-Visita el sitio en producción: **[fulbogoal.com](https://www.fulbogoal.com)**
+## 🔄 Workflow de n8n
 
-## 👤 Autor
+El sistema usa webhooks de n8n para obtener predicciones. Configura tus webhooks en:
+- `config.js` (para frontend)
+- `api/proxy.js` (para Vercel)
 
-**Matías Ferro**
-- GitHub: [@Matiasferro19](https://github.com/Matiasferro19)
-- LinkedIn: [ferromatias](https://www.linkedin.com/in/ferromatias/)
-- Instagram: [@fulbogoal](https://www.instagram.com/fulbogoal/)
+## 🚀 Deploy en Vercel
+
+1. Conecta tu repositorio con Vercel
+2. Configura las variables de entorno si usas el proxy
+3. Deploy automático
 
 ## 📝 Licencia
 
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir qué te gustaría cambiar.
+Este proyecto es de código abierto.
 
 ---
 
-⭐ Si te gustó el proyecto, dale una estrella en GitHub!
-
-🔗 **Sitio web:** [www.fulbogoal.com](https://www.fulbogoal.com)
+⚽ **FulboGoal** - Análisis inteligente de partidos
