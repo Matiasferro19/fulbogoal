@@ -25,7 +25,14 @@ Sistema de análisis y predicción de partidos con alta probabilidad de gol en e
 - Claude AI (Anthropic)
 - ChatGPT (OpenAI)
 - Antigravity IDE
-- **Chatbot**
+
+## 🤖 Chatbot Inteligente
+
+El sistema incluye un chatbot potenciado por **GPT-5 Nano** que:
+
+- ✅ Consulta en tiempo real una base de datos en Google Sheets
+- ✅ Retorna porcentajes de gol en primer tiempo de equipos
+- ✅ Respuestas instantáneas basadas en datos actualizados
 
 ## 📦 Instalación
 
