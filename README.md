@@ -5,18 +5,26 @@ Sistema de análisis y predicción de partidos con alta probabilidad de gol en e
 ## 🚀 Características
 
 - 📊 Predicciones en tiempo real
-- 🎯 Filtrado por probabilidad (70%+, 85%+)
+- 🎯 Filtrado por probabilidad (85%+)
 - 📅 Vista de partidos: Ayer, Hoy y Mañana
 - 📱 Diseño responsive
 - 🔄 Sincronización automática con n8n
 
 ## 🛠️ Tecnologías
 
+### Frontend
 - HTML5, CSS3, JavaScript
 - Bootstrap 5
 - Font Awesome
-- n8n (automatización)
+
+### Backend & Automatización
+- n8n (automatización y workflows)
 - Vercel (deployment)
+
+### Desarrollo & IA
+- Claude AI (Anthropic)
+- ChatGPT (OpenAI)
+- Antigravity IDE
 
 ## 📦 Instalación
 
